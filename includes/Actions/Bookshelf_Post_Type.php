@@ -15,6 +15,9 @@ class Bookshelf_Post_Type
 	    add_action( 'init', array($this , 'create_authors_taxonomy') , 0 );
 	    add_action('add_meta_boxes', array($this , 'bookshelf_add_custom_box') );
 	    add_action('save_post', array($this , 'bookshelf_save_postdata') );
+
+
+        add_action( 'plugins_loaded', function () {Actions\SP_plugin::get_instance();} );
          
     }
 

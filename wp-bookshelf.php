@@ -47,9 +47,12 @@ class WP_Bookshelf_Plugin
      */
     public static function get_instance()
     {
+
         NULL === self::$instance and self::$instance = new self;
         return self::$instance;
+
     }
+
 
     /**
      * Used for regular plugin work.
@@ -63,15 +66,20 @@ class WP_Bookshelf_Plugin
         $this->plugin_path = plugin_dir_path(__FILE__);
         $this->load_language('wp_bookshelf');
 
+
+
         spl_autoload_register(array($this, 'autoload'));
+
+
+
 
         // Example: Modify the Contents
         //Actions\Post::addEmojiToContents();
         register_activation_hook( __file__, Installer\Database::create_database() );
 
+
         $Bookshelf_Post_Type = new Actions\Bookshelf_Post_Type; 
         $Bookshelf_Menu_Page = new Actions\Bookshelf_Menu_Page;  
- 
 
     }
 
@@ -82,6 +90,8 @@ class WP_Bookshelf_Plugin
      */
     public function __construct()
     {
+
+
     }
 
     /**
@@ -97,6 +107,7 @@ class WP_Bookshelf_Plugin
     public function load_language($domain)
     {
         load_plugin_textdomain($domain, FALSE, $this->plugin_path . '/languages');
+
     }
 
     /**
@@ -115,4 +126,6 @@ class WP_Bookshelf_Plugin
             }
         }
     }
+
 }
+

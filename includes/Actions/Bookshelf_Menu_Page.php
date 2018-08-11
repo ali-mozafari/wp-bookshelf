@@ -2,6 +2,7 @@
 
 namespace Actions;
 
+require_once(plugin_dir_path( __FILE__) . 'Books_List.php');
 
 class Bookshelf_Menu_Page
 {
@@ -22,10 +23,27 @@ class Bookshelf_Menu_Page
 
 
     function bookshelf_admin_page(){
-       ?>
-       <div class="wrap">
-          <h2>Welcome To ‌Bookshelf Plugin</h2>
-       </div>
+
+      $myListTable = new \Books_List();
+      ?>
+      <div class="wrap">
+        <h2>My Bookshelf Info</h2>
+
+        <div id="poststuff">
+          <div id="post-body" class="metabox-holder columns-2">
+            <div id="post-body-content">
+              <div class="meta-box-sortables ui-sortable">
+                <form method="post">
+                  <?php
+                  $myListTable->prepare_items();
+                  $myListTable->display(); ?>
+                </form>
+              </div>
+            </div>
+          </div>
+          <br class="clear">
+        </div>
+      </div>
     <?php
     }
 
