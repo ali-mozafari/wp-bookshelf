@@ -13,8 +13,8 @@ class Bookshelf_Post_Type
 	    add_action( 'init', array( &$this, 'register_post_type' ) );
 	    add_action( 'init', array($this , 'create_publisher_taxonomy') , 0 );
 	    add_action( 'init', array($this , 'create_authors_taxonomy') , 0 );
-	    add_action('add_meta_boxes', array($this , 'wporg_add_custom_box') );
-	    add_action('save_post', array($this , 'wporg_save_postdata') );
+	    add_action('add_meta_boxes', array($this , 'bookshelf_add_custom_box') );
+	    add_action('save_post', array($this , 'bookshelf_save_postdata') );
          
     }
 
